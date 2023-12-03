@@ -17,14 +17,14 @@ describe("Day 0", () => {
     // These are added in case you want to try to refactor your solution after the initial successful solve
     // Which is also why they're initially commented out
     // it(`solves part 1 with real input`, async () => {
-    //     const content = await fs.promises.readFile(`./inputs/part1.txt`);
+    //     const content = await fs.promises.readFile(`inputs/part1.txt`);
     //     expect(day0.solveForPartOne(content.toString())).toBe(
     //         "<your correct solution>",
     //     );
     // });
 
     // it(`solves part 2 with real input`, async () => {
-    //     const content = await fs.promises.readFile(`./inputs/part2.txt`);
+    //     const content = await fs.promises.readFile(`inputs/part2.txt`);
     //     expect(day0.solveForPartTwo(content.toString())).toBe(
     //         "<your correct solution>",
     //     );
