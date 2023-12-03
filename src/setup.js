@@ -18,6 +18,7 @@ const startPath = process.cwd();
   
   console.log("\n\n\n  🎄 ADVENT OF CODE 🎄 \n\n");
   console.log(`🎁 Setting up day ${day}`);
+  await createDayFolder();
   await createInputFiles();
   await createCodeFiles();
   await updateIndex();
@@ -44,9 +45,18 @@ async function createFileWithContentIfItDoesntExist(name, content) {
   }
 }
 
+async function createDayFolder() {
+  const dayFolder = path.join(startPath, "src", `day${day}`);
+  await createDirectoryIfItDoesntExist(dayFolder);
+
+  return dayFolder;
+}
+
 async function createInputFiles() {
-  const inputDayPath = path.join(startPath, "inputs", `day${day}`);
+  const folder = await createDayFolder();
+  const inputDayPath = path.join(folder, "inputs");
   await createDirectoryIfItDoesntExist(inputDayPath);
+
   const year = (new Date()).getFullYear();
 
   createFileWithContentIfItDoesntExist(
@@ -68,15 +78,17 @@ async function copyTemplate(from, to) {
 
 async function createCodeFiles() {
   const templateFolder = path.join(startPath, "src", "day0");
-  const codeFolder = path.join(startPath, "src", `day${day}`);
-  await createDirectoryIfItDoesntExist(codeFolder);
+  const dayFolder = await createDayFolder();
+
+  await createDirectoryIfItDoesntExist(dayFolder);
+
   await copyTemplate(
     path.join(templateFolder, "index.ts"),
-    path.join(codeFolder, "index.ts")
+    path.join(dayFolder, "index.ts")
   );
   await copyTemplate(
     path.join(templateFolder, "day0.spec.ts"),
-    path.join(codeFolder, `day${day}.spec.ts`)
+    path.join(dayFolder, `day${day}.spec.ts`)
   );
 }
 
