@@ -64,7 +64,7 @@ async function createInputFiles() {
 
     createFileWithContentIfItDoesntExist(
         path.join(inputDayPath, "part2.txt"),
-        `{After completing day 1, visit https://adventofcode.com/${year}/day/${day} and paste the part 2 input here}`,
+        `{After completing part 1, visit https://adventofcode.com/${year}/day/${day} and paste the part 2 input here}`,
     );
 }
 
