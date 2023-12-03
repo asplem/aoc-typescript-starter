@@ -1,8 +1,7 @@
 import { Day } from "../day";
 
 class Day0 extends Day {
-
-    constructor(){
+    constructor() {
         super(0);
     }
 
@@ -15,4 +14,4 @@ class Day0 extends Day {
     }
 }
 
-export default new Day0;
+export default new Day0();
